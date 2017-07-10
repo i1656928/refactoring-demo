@@ -1,5 +1,6 @@
 package com.scrumtrek.simplestore;
 
+import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -115,12 +116,14 @@ public class CustomerTest {
 
         System.out.println(statement);
 
+        Assert.assertTrue("Statement need contain start with Rental record", statement.startsWith("Rental record for"));
         Assert.assertTrue("Statement need contain customer", statement.contains(sutName));
         Assert.assertTrue("3 point need to be earned", statement.contains("earned 3 frequent renter points"));
 
         Assert.assertTrue("Amount owed need to be 30.5 in statement", statement.contains("Amount owed is 30.5"));
         Assert.assertTrue("Movie name need to be in statement", statement.contains(dummyMovieName));
         Assert.assertTrue("Movie 1 name need to be in statement", statement.contains(dummyMovieName1));
+        Assert.assertEquals("Lines numbers should be 4", 4, StringUtils.countMatches(statement, "\n"));
     }
 
 
