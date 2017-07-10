@@ -87,6 +87,42 @@ public class CustomerTest {
         Assert.assertTrue("Movie name need to be in statement", statement.contains(dummyMovieName));
     }
 
+    @Test
+    public void itShouldAllMoviesInfoWhenAddMultiRentalForRegular(){
+        String sutName = "Dummy customer";
+        Customer sut = new Customer(sutName);
+
+
+        String dummyMovieName = "Dummy movie";
+        Movie dummyMovie = new Movie(dummyMovieName, PriceCodes.Regular);
+
+        String dummyMovieName1 = "Dummy movie1";
+        Movie dummyMovie1 = new Movie(dummyMovieName1, PriceCodes.NewRelease);
+
+        // Create rentals
+        int dummyRentalDays = 5;
+        int dummyRentalDays1 = 8;
+        Rental dummyRental = new Rental(dummyMovie, dummyRentalDays);
+        Rental dummyRental1 = new Rental(dummyMovie1, dummyRentalDays1);
+
+        // Assign rentals to customers
+        sut.addRental(dummyRental);
+        sut.addRental(dummyRental1);
+
+        String statement = sut.Statement();
+
+
+
+        System.out.println(statement);
+
+        Assert.assertTrue("Statement need contain customer", statement.contains(sutName));
+        Assert.assertTrue("3 point need to be earned", statement.contains("earned 3 frequent renter points"));
+
+        Assert.assertTrue("Amount owed need to be 30.5 in statement", statement.contains("Amount owed is 30.5"));
+        Assert.assertTrue("Movie name need to be in statement", statement.contains(dummyMovieName));
+        Assert.assertTrue("Movie 1 name need to be in statement", statement.contains(dummyMovieName1));
+    }
+
 
 
 
