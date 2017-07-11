@@ -5,6 +5,15 @@ package com.scrumtrek.simplestore;
  */
 public class FrequentRenterCalculator {
     public float getPoints(PriceCodes priceCode, int days){
-        return 0;
+        // Add frequent renter points
+        int frequentRenterPoints = 1;
+
+        // Add bonus for a two-day new-release rental
+        if ((priceCode == PriceCodes.NewRelease) && (days > 1))
+        {
+            frequentRenterPoints ++;
+        }
+
+        return frequentRenterPoints;
     }
 }

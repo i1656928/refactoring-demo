@@ -9,12 +9,18 @@ import java.util.List;
 public class Customer {
 	private PriceCalculator m_PriceCalculator;
 	private String m_Name;
+	private FrequentRenterCalculator m_frequentRenterCalculator;
 	private List<Rental> m_Rentals = new ArrayList<Rental>();
 
-	public Customer(String name, PriceCalculator priceCalculator) {
+	public Customer(String m_Name, PriceCalculator m_PriceCalculator) {
+		this(m_Name, m_PriceCalculator, new FrequentRenterCalculator());
+	}
+
+	public Customer(String name, PriceCalculator priceCalculator, FrequentRenterCalculator frequentRenterCalculator) {
 
 		m_Name = name;
 		m_PriceCalculator = priceCalculator;
+		m_frequentRenterCalculator = frequentRenterCalculator;
 	}
 
 	public String getName() {
@@ -37,16 +43,8 @@ public class Customer {
 			double thisAmount = m_PriceCalculator.getPrice(each.getMovie().getPriceCode(), each.getDaysRented());
 			
 
-			// Add frequent renter points
-			frequentRenterPoints++;
+			frequentRenterPoints += m_frequentRenterCalculator.getPoints(each.getMovie().getPriceCode(), each.getDaysRented());
 
-			// Add bonus for a two-day new-release rental
-			if ((each.getMovie().getPriceCode() == PriceCodes.NewRelease) && (each.getDaysRented() > 1))
-			{
-				frequentRenterPoints ++;
-			}
-
-			// Show figures for this rental
 			result += "\t" + each.getMovie().getTitle() + "\t" + thisAmount + "\n";
 			totalAmount += thisAmount;
 		}

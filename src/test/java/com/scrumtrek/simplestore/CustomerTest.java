@@ -141,7 +141,7 @@ public class CustomerTest {
         when(stubMoview.getPriceCode()).thenReturn(PriceCodes.Regular);
         when(stubMoview.getTitle()).thenReturn("Stub moview");
 
-        Customer sut = new Customer(sutName, new PriceCalculator());
+        Customer sut = new Customer(sutName, new PriceCalculator(), new FrequentRenterCalculator());
 
 
         // Create rentals
@@ -175,12 +175,7 @@ public class CustomerTest {
         when(stubMoview.getPriceCode()).thenReturn(PriceCodes.Childrens);
         when(stubMoview.getTitle()).thenReturn("Stub moview");
 
-        Customer sut = new Customer(sutName, new PriceCalculator());
-
-
-
-
-        // Create rentals
+        Customer sut = new Customer(sutName, new PriceCalculator(), new FrequentRenterCalculator());
 
 
         // Assign rentals to customers
