@@ -1,5 +1,9 @@
 package com.scrumtrek.simplestore;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -9,10 +13,22 @@ import org.junit.Test;
 public class RentalTest {
 
     @Test
-    public void itShouldSuccessInstanceWhenConstructorCalled(){
-        Rental sut = new Rental(new Movie("Test moview", PriceCodes.NewRelease), 1);
+    public void itShouldReturnMovieWhenConstructorCalled(){
+        Movie movieStub = mock(Movie.class);
+        Rental sut = new Rental(movieStub, 1);
 
+        Movie actualMovie = sut.getMovie();
 
+        Assert.assertEquals(movieStub, actualMovie);
+    }
 
+    @Test
+    public void itShouldReturnDaysRentedWhenConstructorCalled(){
+        Movie movieStub = mock(Movie.class);
+        Rental sut = new Rental(movieStub, 42);
+
+        int actualDaysRented = sut.getDaysRented();
+
+        Assert.assertEquals(42, actualDaysRented);
     }
 }
