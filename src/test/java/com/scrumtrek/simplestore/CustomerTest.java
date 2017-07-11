@@ -11,7 +11,6 @@ import static org.mockito.Mockito.when;
 /**
  * Created by user on 10.07.2017.
  */
-@Ignore
 public class CustomerTest {
 
     /*@Test
