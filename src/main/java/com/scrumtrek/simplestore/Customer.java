@@ -12,10 +12,6 @@ public class Customer {
 	private FrequentRenterCalculator m_frequentRenterCalculator;
 	private List<Rental> m_Rentals = new ArrayList<Rental>();
 
-	public Customer(String m_Name, PriceCalculator m_PriceCalculator) {
-		this(m_Name, m_PriceCalculator, new FrequentRenterCalculator());
-	}
-
 	public Customer(String name, PriceCalculator priceCalculator, FrequentRenterCalculator frequentRenterCalculator) {
 
 		m_Name = name;
