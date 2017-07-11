@@ -43,6 +43,7 @@ public class PriceCalculatorTest {
         testPrice(1.5, PriceCodes.Childrens, 2);
         testPrice(1.5, PriceCodes.Childrens, 3);
         testPrice(1.5, PriceCodes.Childrens, 4);
+        testPrice(3, PriceCodes.Childrens, 5);
 
         testPrice(3, PriceCodes.NewRelease, 1);
         testPrice(6, PriceCodes.NewRelease, 2);

@@ -9,8 +9,7 @@ public class PriceCalculator {
         switch(priceCode) {
             case Regular:
                 retval = 2;
-                if (days > 2)
-                {
+                if (days >= 3) {
                     retval += (days - 2) * 1.5;
                 }
                 break;
