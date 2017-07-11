@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import static java.lang.Math.abs;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -26,20 +27,23 @@ public class PriceCalculatorTest {
     {
         PriceCalculator sut = new PriceCalculator();
         double res = sut.getPrice(priceCode, days);
-        // System.out.println(res);
-        Assert.assertTrue("Result must be 1", (res - expected) < 0.001);
+        System.out.println(res + " " + expected);
+        Assert.assertTrue("Result must be 1", abs(res - expected) < 0.001);
     }
 
     @Test
     public void shouldBeFixedPriceWhenFixedInput(){
+
         testPrice(2, PriceCodes.Regular, 1);
         testPrice(2, PriceCodes.Regular, 2);
         testPrice(3.5, PriceCodes.Regular, 3);
         testPrice(5, PriceCodes.Regular, 4);
+
         testPrice(1.5, PriceCodes.Childrens, 1);
         testPrice(1.5, PriceCodes.Childrens, 2);
         testPrice(1.5, PriceCodes.Childrens, 3);
-        testPrice(3, PriceCodes.Childrens, 4);
+        testPrice(1.5, PriceCodes.Childrens, 4);
+
         testPrice(3, PriceCodes.NewRelease, 1);
         testPrice(6, PriceCodes.NewRelease, 2);
         testPrice(9, PriceCodes.NewRelease, 3);
