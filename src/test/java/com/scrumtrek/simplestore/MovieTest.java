@@ -20,4 +20,12 @@ public class MovieTest {
 
         Assert.assertSame("Incorrect movie name after init", dummyMovieName, sut.getTitle());
     }
+
+    @Test
+    public void itShouldRemovesamePriceWhenSetPrice(){
+        String dummyMovieName = "Dummy movie";
+        Movie sut = new Movie(dummyMovieName, PriceCodes.NewRelease);
+        sut.setPriceCode(PriceCodes.Childrens);
+        Assert.assertEquals(PriceCodes.Childrens, sut.getPriceCode());
+    }
 }
