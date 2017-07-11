@@ -5,13 +5,16 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 /**
  * Created by user on 10.07.2017.
  */
 @Ignore
 public class CustomerTest {
 
-    @Test
+    /*@Test
     public void itShouldSuccessWhenCreated(){
 
         String customerTestName = "Customer for TEST";
@@ -126,9 +129,43 @@ public class CustomerTest {
         Assert.assertTrue("Movie name need to be in statement", statement.contains(dummyMovieName));
         Assert.assertTrue("Movie 1 name need to be in statement", statement.contains(dummyMovieName1));
         Assert.assertEquals("Lines numbers should be 4", 4, StringUtils.countMatches(statement, "\n"));
+    }*/
+
+    @Test
+    public void itShouldMovieInfoWhenAddRentalForChildren(){
+        String sutName = "Dummy customer";
+
+        Rental stubRental = mock(Rental.class);
+        Movie stubMoview = mock(Movie.class);
+
+        when(stubRental.getMovie()).thenReturn(stubMoview);
+        when(stubRental.getDaysRented()).thenReturn(5);
+        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.Childrens);
+        when(stubMoview.getTitle()).thenReturn("Stub moview");
+
+        Customer sut = new Customer(sutName, new PriceCalculator());
+
+
+
+
+        // Create rentals
+
+
+        // Assign rentals to customers
+        sut.addRental(stubRental);
+
+        String statement = sut.Statement();
+
+
+
+        System.out.println(statement);
+
+        Assert.assertTrue("Statement need contain customer", statement.contains(sutName));
+        Assert.assertTrue("1 point need to be earned", statement.contains("earned 1 frequent renter points"));
+
+        Assert.assertTrue("Amount owed need to be in statement", statement.contains("Amount owed is 3"));
+        Assert.assertTrue("Movie name need to be in statement", statement.contains("Stub movie"));
     }
-
-
 
 
 }
