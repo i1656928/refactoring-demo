@@ -44,7 +44,6 @@ public class CustomerTest {
         Assert.assertTrue("Movie name need to be in statement", statement.contains("Stub movie"));
     }
 
-
     @Test
     public void itShouldMovieInfoWhenAddRentalForChildren(){
         String sutName = "Dummy customer";
@@ -75,6 +74,36 @@ public class CustomerTest {
         Assert.assertTrue("Amount owed need to be in statement", statement.contains("Amount owed is 3"));
         Assert.assertTrue("Movie name need to be in statement", statement.contains("Stub movie"));
     }
+
+    @Test
+    public void itShouldTwoPointEarnedWhenRentNewReleaseForLong(){
+        String sutName = "Dummy customer";
+        Rental stubRental = mock(Rental.class);
+        Movie stubMoview = mock(Movie.class);
+
+        when(stubRental.getMovie()).thenReturn(stubMoview);
+        when(stubRental.getDaysRented()).thenReturn(50);
+        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.NewRelease);
+        when(stubMoview.getTitle()).thenReturn("Stub moview");
+
+        Customer sut = new Customer(sutName, new PriceCalculator(), new FrequentRenterCalculator());
+
+
+        // Create rentals
+
+        // Assign rentals to customers
+        sut.addRental(stubRental);
+
+        String statement = sut.Statement();
+
+
+
+        System.out.println(statement);
+
+        Assert.assertTrue("2 point need to be earned", statement.contains("earned 2 frequent renter points"));
+    }
+
+
 
     @Test
     public void itShouldReturnSameNameWhenCreated(){
