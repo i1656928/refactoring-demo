@@ -1,7 +1,10 @@
 package com.scrumtrek.simplestore;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Customer {
 	private String m_Name;
