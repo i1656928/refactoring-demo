@@ -33,14 +33,17 @@ public class PriceCalculatorTest {
     @Test
     public void shouldBeFixedPriceWhenFixedInput(){
         testPrice(2, PriceCodes.Regular, 1);
+        testPrice(2, PriceCodes.Regular, 2);
         testPrice(3.5, PriceCodes.Regular, 3);
-        testPrice(6.5, PriceCodes.Regular, 5);
+        testPrice(5, PriceCodes.Regular, 4);
         testPrice(1.5, PriceCodes.Childrens, 1);
+        testPrice(1.5, PriceCodes.Childrens, 2);
         testPrice(1.5, PriceCodes.Childrens, 3);
-        testPrice(3, PriceCodes.Childrens, 5);
+        testPrice(3, PriceCodes.Childrens, 4);
         testPrice(3, PriceCodes.NewRelease, 1);
+        testPrice(6, PriceCodes.NewRelease, 2);
         testPrice(9, PriceCodes.NewRelease, 3);
-        testPrice(15, PriceCodes.NewRelease, 5);
+        testPrice(12, PriceCodes.NewRelease, 4);
     }
 
 }
