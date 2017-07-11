@@ -15,7 +15,7 @@ public class CustomerTest {
     public void itShouldSuccessWhenCreated(){
 
         String customerTestName = "Customer for TEST";
-        Customer sut = new Customer(customerTestName);
+        Customer sut = new Customer(customerTestName, new PriceCalculator());
 
         Assert.assertSame("Customer name incorrect after init", customerTestName, sut.getName());
     }
@@ -23,7 +23,7 @@ public class CustomerTest {
     @Test
     public void itShouldReturnDefaultStatementWhenCreated(){
         String sutName = "Dummy customer";
-        Customer sut = new Customer(sutName);
+        Customer sut = new Customer(sutName, new PriceCalculator());
 
         String statement = sut.Statement();
 
@@ -35,7 +35,7 @@ public class CustomerTest {
     @Test
     public void itShouldMovieInfoWhenAddRentalForChildren(){
         String sutName = "Dummy customer";
-        Customer sut = new Customer(sutName);
+        Customer sut = new Customer(sutName, new PriceCalculator());
 
 
         String dummyMovieName = "Dummy movie";
@@ -64,7 +64,7 @@ public class CustomerTest {
     @Test
     public void itShouldMovieInfoWhenAddRentalForRegular(){
         String sutName = "Dummy customer";
-        Customer sut = new Customer(sutName);
+        Customer sut = new Customer(sutName,  new PriceCalculator());
 
 
         String dummyMovieName = "Dummy movie";
@@ -93,7 +93,7 @@ public class CustomerTest {
     @Test
     public void itShouldAllMoviesInfoWhenAddMultiRentalForRegular(){
         String sutName = "Dummy customer";
-        Customer sut = new Customer(sutName);
+        Customer sut = new Customer(sutName, new PriceCalculator());
 
 
         String dummyMovieName = "Dummy movie";

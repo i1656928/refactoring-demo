@@ -8,9 +8,9 @@ class MainClass {
 		Movie movGladiator = new Movie("Gladiator", PriceCodes.NewRelease);
 
 		// Create customers
-		Customer custMickeyMouse = new Customer("Mickey Mouse");
-		Customer custDonaldDuck = new Customer("Donald Duck");
-		Customer custMinnieMouse = new Customer("Minnie Mouse");
+		Customer custMickeyMouse = new Customer("Mickey Mouse", new PriceCalculator());
+		Customer custDonaldDuck = new Customer("Donald Duck", new PriceCalculator());
+		Customer custMinnieMouse = new Customer("Minnie Mouse", new PriceCalculator());
 
 		// Create rentals
 		Rental rental1 = new Rental(movCinderella, 5);
