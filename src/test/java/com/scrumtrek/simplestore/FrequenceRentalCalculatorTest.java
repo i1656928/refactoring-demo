@@ -8,24 +8,24 @@ import org.junit.Test;
  */
 public class FrequenceRentalCalculatorTest {
 
-    public void testFreq(double expected, PriceCodes priceCode, int days)
+    public void testFreq(int expected, PriceCodes priceCode, int days)
     {
         FrequentRenterCalculator sut = new FrequentRenterCalculator();
-        int res = sut.getPoints(priceCode, days);
+            int res = sut.getPoints(priceCode, days);
         System.out.println(res);
-        Assert.assertTrue("Result must be 1", (res - expected) < 0.001);
+        Assert.assertEquals("Result must be " + expected, expected, res);
     }
 
     @Test
     public void shouldBeFixedPriceWhenFixedInput(){
         testFreq(1, PriceCodes.Regular, 1);
+        testFreq(1, PriceCodes.Regular, 2);
         testFreq(1, PriceCodes.Regular, 3);
-        testFreq(1, PriceCodes.Regular, 5);
         testFreq(1, PriceCodes.Childrens, 1);
+        testFreq(1, PriceCodes.Childrens, 2);
         testFreq(1, PriceCodes.Childrens, 3);
-        testFreq(1, PriceCodes.Childrens, 5);
         testFreq(1, PriceCodes.NewRelease, 1);
+        testFreq(2, PriceCodes.NewRelease, 2);
         testFreq(2, PriceCodes.NewRelease, 3);
-        testFreq(2, PriceCodes.NewRelease, 5);
     }
 }
