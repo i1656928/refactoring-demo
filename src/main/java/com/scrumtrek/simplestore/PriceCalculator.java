@@ -21,9 +21,9 @@ public class PriceCalculator {
 
             case Childrens:
                 retval = 1.5;
-                if (days > 3)
+                if (days > 4)
                 {
-                    retval = (days - 3) * 1.5;
+                    retval += (days - 4) * 1.5;
                 }
         }
       return retval;
