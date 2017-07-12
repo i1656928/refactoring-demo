@@ -7,11 +7,13 @@ public class PriceCalculator {
     public double getPrice(PriceCodes priceCode, int days){
         double retval = 0;
 
-        if (PriceCodes.REGULAR == priceCode) {
+        if (PriceCodes.REGULAR == priceCode || PriceCodes.XXX == priceCode) {
             retval = 2;
             if (days >= 3) {
                 retval += (days - 2) * 1.5;
             }
+            if (PriceCodes.XXX == priceCode)
+                retval = 0.85 * retval;
         } else if (PriceCodes.NEW_RELEASE == priceCode) {
             retval += days * 3;
         } else if (PriceCodes.CHILDRENS == priceCode) {

@@ -47,6 +47,12 @@ public class PriceCalculatorTest {
         testPrice(6, PriceCodes.NEW_RELEASE, 2);
         testPrice(9, PriceCodes.NEW_RELEASE, 3);
         testPrice(12, PriceCodes.NEW_RELEASE, 4);
+
+
+        testPrice(2 * 0.85, PriceCodes.XXX, 1);
+        testPrice(2 * 0.85, PriceCodes.XXX, 2);
+        testPrice(3.5 * 0.85, PriceCodes.XXX, 3);
+        testPrice(5 * 0.85, PriceCodes.XXX, 4);
     }
 
 
