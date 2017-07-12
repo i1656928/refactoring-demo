@@ -10,17 +10,6 @@ import static org.mockito.Mockito.mock;
  * Created by user on 11.07.2017.
  */
 public class PriceCalculatorTest {
-
-
-        /*
-        Rental stubRental = mock(Rental.class);
-        Movie stubMoview = mock(Movie.class);
-
-        when(stubRental.getMovie()).thenReturn(stubMoview);
-        when(stubRental.getDaysRented()).thenReturn(1);
-        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.REGULAR);
-         */
-
     public void testPrice(double expected, PriceCodes priceCode, int days)
     {
         PriceCalculator sut = new PriceCalculator();
