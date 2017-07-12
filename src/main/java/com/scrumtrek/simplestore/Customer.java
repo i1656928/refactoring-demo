@@ -37,8 +37,6 @@ public class Customer {
 		
 		for(Rental each: m_Rentals) {
 			double thisAmount = m_PriceCalculator.getPrice(each.getMovie().getPriceCode(), each.getDaysRented());
-			
-
 			frequentRenterPoints += m_frequentRenterCalculator.getPoints(each.getMovie().getPriceCode(), each.getDaysRented());
 
 			result += "\t" + each.getMovie().getTitle() + "\t" + thisAmount + "\n";

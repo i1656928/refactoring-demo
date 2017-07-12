@@ -6,27 +6,23 @@ package com.scrumtrek.simplestore;
 public class PriceCalculator {
     public double getPrice(PriceCodes priceCode, int days){
         double retval = 0;
-        switch(priceCode) {
-            case Regular:
-                retval = 2;
-                if (days >= 3) {
-                    retval += (days - 2) * 1.5;
-                }
-                break;
 
-            case NewRelease:
-                retval += days * 3;
-                break;
-
-            case Childrens:
-                retval = 1.5;
-                if (days >= 5)
-                {
-                    retval += (days - 4) * 1.5;
-                }
+        if (PriceCodes.Regular == priceCode) {
+            retval = 2;
+            if (days >= 3) {
+                retval += (days - 2) * 1.5;
+            }
+        } else if (PriceCodes.NewRelease == priceCode) {
+            retval += days * 3;
+        } else if (PriceCodes.Childrens == priceCode) {
+            retval = 1.5;
+            if (days >= 5)
+            {
+                retval += (days - 4) * 1.5;
+            }
+        } else {
+            throw new IllegalArgumentException();
         }
       return retval;
     }
-
-
 }

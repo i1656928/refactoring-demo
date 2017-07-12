@@ -51,5 +51,11 @@ public class PriceCalculatorTest {
         testPrice(12, PriceCodes.NewRelease, 4);
     }
 
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldBeExceptionWhenNullPriceCode(){
+
+        testPrice(2, null, 1);
+    }
 }
 
