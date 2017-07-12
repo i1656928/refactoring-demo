@@ -2,11 +2,9 @@ package com.scrumtrek.simplestore;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import static java.lang.Math.abs;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  * Created by user on 11.07.2017.
@@ -20,7 +18,7 @@ public class PriceCalculatorTest {
 
         when(stubRental.getMovie()).thenReturn(stubMoview);
         when(stubRental.getDaysRented()).thenReturn(1);
-        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.Regular);
+        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.REGULAR);
          */
 
     public void testPrice(double expected, PriceCodes priceCode, int days)
@@ -34,21 +32,21 @@ public class PriceCalculatorTest {
     @Test
     public void shouldBeFixedPriceWhenFixedInput(){
 
-        testPrice(2, PriceCodes.Regular, 1);
-        testPrice(2, PriceCodes.Regular, 2);
-        testPrice(3.5, PriceCodes.Regular, 3);
-        testPrice(5, PriceCodes.Regular, 4);
+        testPrice(2, PriceCodes.REGULAR, 1);
+        testPrice(2, PriceCodes.REGULAR, 2);
+        testPrice(3.5, PriceCodes.REGULAR, 3);
+        testPrice(5, PriceCodes.REGULAR, 4);
 
-        testPrice(1.5, PriceCodes.Childrens, 1);
-        testPrice(1.5, PriceCodes.Childrens, 2);
-        testPrice(1.5, PriceCodes.Childrens, 3);
-        testPrice(1.5, PriceCodes.Childrens, 4);
-        testPrice(3, PriceCodes.Childrens, 5);
+        testPrice(1.5, PriceCodes.CHILDRENS, 1);
+        testPrice(1.5, PriceCodes.CHILDRENS, 2);
+        testPrice(1.5, PriceCodes.CHILDRENS, 3);
+        testPrice(1.5, PriceCodes.CHILDRENS, 4);
+        testPrice(3, PriceCodes.CHILDRENS, 5);
 
-        testPrice(3, PriceCodes.NewRelease, 1);
-        testPrice(6, PriceCodes.NewRelease, 2);
-        testPrice(9, PriceCodes.NewRelease, 3);
-        testPrice(12, PriceCodes.NewRelease, 4);
+        testPrice(3, PriceCodes.NEW_RELEASE, 1);
+        testPrice(6, PriceCodes.NEW_RELEASE, 2);
+        testPrice(9, PriceCodes.NEW_RELEASE, 3);
+        testPrice(12, PriceCodes.NEW_RELEASE, 4);
     }
 
 

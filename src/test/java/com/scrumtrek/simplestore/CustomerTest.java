@@ -1,8 +1,6 @@
 package com.scrumtrek.simplestore;
 
-import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
@@ -20,7 +18,7 @@ public class CustomerTest {
 
         when(stubRental.getMovie()).thenReturn(stubMoview);
         when(stubRental.getDaysRented()).thenReturn(5);
-        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.Regular);
+        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.REGULAR);
         when(stubMoview.getTitle()).thenReturn("Stub moview");
 
         Customer sut = new Customer(sutName, new PriceCalculator(), new FrequentRenterCalculator());
@@ -31,13 +29,13 @@ public class CustomerTest {
         // Assign rentals to customers
         sut.addRental(stubRental);
 
-        String statement = sut.Statement();
+        String statement = sut.statement();
 
 
 
         System.out.println(statement);
 
-        Assert.assertTrue("Statement need contain customer", statement.contains(sutName));
+        Assert.assertTrue("statement need contain customer", statement.contains(sutName));
         Assert.assertTrue("1 point need to be earned", statement.contains("earned 1 frequent renter points"));
 
         Assert.assertTrue("Amount owed need to be 6.5 in statement", statement.contains("Amount owed is 6.5"));
@@ -53,7 +51,7 @@ public class CustomerTest {
 
         when(stubRental.getMovie()).thenReturn(stubMoview);
         when(stubRental.getDaysRented()).thenReturn(5);
-        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.Childrens);
+        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.CHILDRENS);
         when(stubMoview.getTitle()).thenReturn("Stub moview");
 
         Customer sut = new Customer(sutName, new PriceCalculator(), new FrequentRenterCalculator());
@@ -62,13 +60,13 @@ public class CustomerTest {
         // Assign rentals to customers
         sut.addRental(stubRental);
 
-        String statement = sut.Statement();
+        String statement = sut.statement();
 
 
 
         System.out.println(statement);
 
-        Assert.assertTrue("Statement need contain customer", statement.contains(sutName));
+        Assert.assertTrue("statement need contain customer", statement.contains(sutName));
         Assert.assertTrue("1 point need to be earned", statement.contains("earned 1 frequent renter points"));
 
         Assert.assertTrue("Amount owed need to be in statement", statement.contains("Amount owed is 3"));
@@ -83,7 +81,7 @@ public class CustomerTest {
 
         when(stubRental.getMovie()).thenReturn(stubMoview);
         when(stubRental.getDaysRented()).thenReturn(50);
-        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.NewRelease);
+        when(stubMoview.getPriceCode()).thenReturn(PriceCodes.NEW_RELEASE);
         when(stubMoview.getTitle()).thenReturn("Stub moview");
 
         Customer sut = new Customer(sutName, new PriceCalculator(), new FrequentRenterCalculator());
@@ -94,7 +92,7 @@ public class CustomerTest {
         // Assign rentals to customers
         sut.addRental(stubRental);
 
-        String statement = sut.Statement();
+        String statement = sut.statement();
 
 
 

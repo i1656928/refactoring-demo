@@ -18,14 +18,14 @@ public class FrequenceRentalCalculatorTest {
 
     @Test
     public void shouldBeFixedPriceWhenFixedInput(){
-        testFreq(1, PriceCodes.Regular, 1);
-        testFreq(1, PriceCodes.Regular, 2);
-        testFreq(1, PriceCodes.Regular, 3);
-        testFreq(1, PriceCodes.Childrens, 1);
-        testFreq(1, PriceCodes.Childrens, 2);
-        testFreq(1, PriceCodes.Childrens, 3);
-        testFreq(1, PriceCodes.NewRelease, 1);
-        testFreq(2, PriceCodes.NewRelease, 2);
-        testFreq(2, PriceCodes.NewRelease, 3);
+        testFreq(1, PriceCodes.REGULAR, 1);
+        testFreq(1, PriceCodes.REGULAR, 2);
+        testFreq(1, PriceCodes.REGULAR, 3);
+        testFreq(1, PriceCodes.CHILDRENS, 1);
+        testFreq(1, PriceCodes.CHILDRENS, 2);
+        testFreq(1, PriceCodes.CHILDRENS, 3);
+        testFreq(1, PriceCodes.NEW_RELEASE, 1);
+        testFreq(2, PriceCodes.NEW_RELEASE, 2);
+        testFreq(2, PriceCodes.NEW_RELEASE, 3);
     }
 }

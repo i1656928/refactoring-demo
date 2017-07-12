@@ -9,7 +9,7 @@ public class FrequentRenterCalculator {
         int frequentRenterPoints = 1;
 
         // Add bonus for a two-day new-release rental
-        if ((priceCode == PriceCodes.NewRelease) && (days > 1))
+        if ((priceCode == PriceCodes.NEW_RELEASE) && (days > 1))
         {
             frequentRenterPoints ++;
         }

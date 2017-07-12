@@ -12,11 +12,11 @@ public class MovieTest {
     public void itShouldSuccessWhenCreatedInstancs(){
 
         String dummyMovieName = "Dummy moview";
-        Movie sut = new Movie(dummyMovieName, PriceCodes.NewRelease);
+        Movie sut = new Movie(dummyMovieName, PriceCodes.NEW_RELEASE);
 
         Assert.assertNotNull(sut);
 
-        Assert.assertEquals("Incorrect price code after init", PriceCodes.NewRelease, sut.getPriceCode());
+        Assert.assertEquals("Incorrect price code after init", PriceCodes.NEW_RELEASE, sut.getPriceCode());
 
         Assert.assertSame("Incorrect movie name after init", dummyMovieName, sut.getTitle());
     }
@@ -24,8 +24,8 @@ public class MovieTest {
     @Test
     public void itShouldRemovesamePriceWhenSetPrice(){
         String dummyMovieName = "Dummy movie";
-        Movie sut = new Movie(dummyMovieName, PriceCodes.NewRelease);
-        sut.setPriceCode(PriceCodes.Childrens);
-        Assert.assertEquals(PriceCodes.Childrens, sut.getPriceCode());
+        Movie sut = new Movie(dummyMovieName, PriceCodes.NEW_RELEASE);
+        sut.setPriceCode(PriceCodes.CHILDRENS);
+        Assert.assertEquals(PriceCodes.CHILDRENS, sut.getPriceCode());
     }
 }
